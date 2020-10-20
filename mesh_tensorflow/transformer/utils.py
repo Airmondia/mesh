@@ -1305,7 +1305,7 @@ def _maybe_decode_python(ids_or_strs, vocabulary):
   """Decode if ids_or_strs is not yet strings in pure python."""
 
   if ids_or_strs:
-    if not isinstance(ids_or_strs[0], str):
+    if not isinstance(ids_or_strs[0], (str, bytes)):
       ids_or_strs = [vocabulary.decode(t.tolist()) for t in ids_or_strs]
   return ids_or_strs
 
